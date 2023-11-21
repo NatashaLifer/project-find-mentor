@@ -1,0 +1,10 @@
+.tabs-head {
+    margin-bottom: 15px;
+}
+
+.btn-signin, .btn-signup {
+    background-color: $grey;
+}
+.tabs-head .active {
+    background-color: $blue;
+}

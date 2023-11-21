@@ -1,0 +1,71 @@
+.hero {
+    margin-top: 92px;
+    &__title {
+        width: 828px;
+        @include textSize (700, 98px, 120px);
+        letter-spacing: 10px;
+        color: var(--text-color);
+    }
+    &__title> span {
+        color: $main-orange;
+    }
+    &__buttons {
+        margin-top: 80px;
+        margin-right: 44px;
+        @include flex (end, space-between);
+    }
+    &__find {
+        background: $main-orange;
+        padding: 15px 37px;
+        border-radius: 21px;
+        border-color: transparent;
+        &-link{
+            text-decoration: none;
+            color: $dark-blue;
+            @include textSize (700, 35px, normal);
+            
+        }
+    }
+    &__video-start {
+        border-color: transparent;
+        border-radius: 30px;
+        width: 127px;
+        height: 90px;
+        .btn-bgcolor {
+            fill: var(--btn-bgcolor);
+        }
+    }
+    &__footer {
+        margin-top: 93px;
+        margin-bottom: 93px;
+        &-select {
+            @include flex (center, space-between);
+            gap: 59px;
+        }
+    }
+    .select-item {
+        position: relative;
+    }
+    .select-link {
+        text-decoration: none;
+        @include textSize (700, 35px, normal);
+        color: var(--text-color);
+    }
+    .select-link::before {
+        content: '';
+        position: absolute;
+        top: 53px;
+        width: 61px;
+        border-bottom: 4px solid $main-orange;
+    }
+    .mentor-registration {
+        margin-left: auto;
+    }
+    .mentor-registration-link {
+        // display: inline-block;
+        text-decoration: none;
+        @include textSize (400, 30px, normal);
+        color: var(--text-color);
+    }
+    
+}

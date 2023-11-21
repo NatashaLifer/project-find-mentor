@@ -1,0 +1,20 @@
+.form-signin, .form-signup {
+    display: none;
+}
+.tabs-body .active {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.field-auth, .btn-auth {
+    height: 25px;
+    border: 1px solid rgb(138, 138, 138);
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.btn-auth:hover{
+    background-color: $blue;
+    border-color: $blue;
+}

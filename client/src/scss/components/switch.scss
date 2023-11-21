@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+:root{
+    --text-color-switch: #7E7E7E;
+    --switch-dark: #383838;
+} 
+
+.nav__item-switch-mode {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-color-switch);
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 88px;
+    height: 12px;
+    padding: 8px;
+}
+  
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .8s;
+    transition: .8s;
+    border-radius: 34px;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    right: 4px;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    background-color: $main-orange;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.slider:after {
+    position: absolute;
+    content: "Light Mode";
+    left: 10px;
+    bottom: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+input:checked + .slider {
+    background-color: var(--switch-dark);
+}
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(-124px);
+    -ms-transform: translateX(-124px);
+    transform: translateX(-75px);
+}
+
+input:checked + .slider:after {
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    top: 0;
+    left: unset;
+    content: "Dark Mode";
+}
