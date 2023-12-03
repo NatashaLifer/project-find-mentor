@@ -1,0 +1,14 @@
+.categories {
+    margin-top: 33px;
+    @include flex(center, flex-start);
+    gap: 59px;
+}
+
+.categories-item {
+    @include textSize (700, 35px, normal); 
+    color: var(--text-color-pg2);
+}
+
+.categories > .active {
+    color: $main-orange;
+}

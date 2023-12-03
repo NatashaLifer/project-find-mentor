@@ -15,10 +15,15 @@
         @include flex (end, space-between);
     }
     &__find {
-        background: $main-orange;
+        background-color: $main-orange;
         padding: 15px 37px;
         border-radius: 21px;
         border-color: transparent;
+        &:hover {
+            background-color: rgb(212, 102, 17);
+            transition: 0.5s;
+        }
+        
         &-link{
             text-decoration: none;
             color: $dark-blue;

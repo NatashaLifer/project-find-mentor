@@ -8,7 +8,12 @@ body {
     --text-color: rgb(225, 226, 226);
     --bg-color-darker: rgba(58, 37, 109, 0.5);
     --bg-color-lighter: rgba(73, 45, 216, 0.5);
-    --btn-bgcolor: rgb(225, 226, 226, 0.5);
+    --btn-bgcolor: rgb(225, 226, 226);
+
+    --text-color-pg2: rgb(229, 229, 229);
+    --bg-color-darker-opaque: rgba(58, 37, 109);
+    --bg-color-lighter-opaque: rgba(73, 45, 216);
+    --bg-transparent: rgba(251, 129, 34, 0.10);  
 }
 
 body.light {
@@ -16,6 +21,12 @@ body.light {
     --bg-color-darker: rgba(189, 200, 212, 0.5);
     --bg-color-lighter: rgba(225, 226, 226, 0.5);
     --btn-bgcolor: rgb(29, 34, 40);
+
+    --text-color-pg2: rgba(58, 37, 109);
+    --bg-color-darker-opaque: rgba(189, 200, 212);
+    --bg-color-lighter-opaque: rgba(225, 226, 226);
+    --bg-transparent: rgba(251, 129, 34, 0.10);
+
   }
 
 .container {

@@ -19,7 +19,7 @@ const sass = gulpSass(dartSass);
 
 const configPath = {
     src: {
-      html: "./src/index.html",
+      html: "./src/*.html",
       scss: "./src/scss/main.scss",
       js: "./src/scripts/main.js",
       images: "./src/img/**/*",

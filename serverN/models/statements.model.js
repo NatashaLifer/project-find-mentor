@@ -6,6 +6,10 @@ const StatementsSchema = new Schema({
     id: {
         type: Number,
     },
+    category: {
+        type: String,
+        required: true,
+    },
     title: {
         type: String,
         required: true,
@@ -13,6 +17,21 @@ const StatementsSchema = new Schema({
     description: {
         type: String,
         required: true,
+    }, 
+    rating: {
+        type: Number,
+        required: true,
+    },
+    location: {
+        type: String,
+        required: true,
+    },
+    price: {
+        type: Number,
+        required: true,
+    },
+    imgUrl: {
+        type: String,
     }
 })
 

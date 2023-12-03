@@ -1,20 +1,97 @@
 .form-signin, .form-signup {
     display: none;
 }
+
+.btn-signin, .btn-signup {
+    cursor: pointer;
+    background-color: $grey;
+    color: rgb(138, 138, 138);
+    line-height: 1.5;
+    padding-inline: 20px;
+    border-bottom: 1px solid transparent;
+    border-top: none;
+    border-inline: none;
+}
+
+.tabs-head {
+    margin-bottom: 20px;
+}
+
+.tabs-head .active {
+    color: $black;
+    font-weight: 600;
+    border-bottom: 2px solid $blue;
+    transition: 0.3s;
+}
+
 .tabs-body .active {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
 }
 
 .field-auth, .btn-auth {
-    height: 25px;
-    border: 1px solid rgb(138, 138, 138);
-    border-radius: 5px;
+    height: 30px;
+    border-color: transparent;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.15);
+    border-radius: 15px;
     padding-left: 10px;
 }
 
-.btn-auth:hover{
+.btn-auth {
+    height: 35px;
+}
+
+.field-auth:focus {
+    outline: 2px solid $blue;
+}
+    
+
+.btn-auth {
+    cursor: pointer;
+    color: $grey;
     background-color: $blue;
     border-color: $blue;
+}
+
+.btn-auth:hover {
+    background-color: $dark-blue;
+    border-color: $dark-blue;
+    transition: 0.5s;
+}
+
+.error-message {
+    color: rgb(218, 3, 3)
+}
+
+.popup-text {
+    position: absolute;
+    padding-left: 120px;
+    padding-bottom: 20px;
+    left: 0;
+    bottom: 0;
+    opacity: 0;
+    @include textSize (600, 18px, normal);
+    color: $main-orange;
+
+    animation: leave 3s ease-out;
+}
+
+@keyframes leave {
+    0% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    80% {
+        transform: translateX(1000px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 0;
+    }
 }

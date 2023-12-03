@@ -1,9 +1,8 @@
 import bcrypt from 'bcrypt'
-import { verify } from 'jsonwebtoken'
-import bcrypt from 'bcryptjs'
+import pkg from 'jsonwebtoken'
+const { verify } = pkg
 
-import UsersModel from '../models/statements.model.js'
-import { getToken } from '@/utils'
+import UsersModel from '../models/user.model.js'
 
 const login = async (req, res) => {
 	if (!req.body || !req.body.email || !req.body.password) {
@@ -37,7 +36,6 @@ const login = async (req, res) => {
 	}
 
 	res.send({
-		token: getToken(userDTO),
 		data: userDTO,
 	})
 }
@@ -78,34 +76,28 @@ const verifyToken = async (req, res) => {
 	}
 }
 const userRegister = async (req, res) => {
-	if (error) return res.status(400).send({ statusText: error.details[0].message })
-
 	//Checking if the user in database
-	const emailExist = await User.findOne({ email: req.body.email })
-	if (emailExist) return res.status(400).send({ statusText: 'Такой email уже существует' })
+	const emailExist = await UsersModel.findOne({ email: req.body.email })
 
-	const usernameExist = await User.findOne({ username: req.body.fullName })
-	if (usernameExist) return res.status(400).send({ statusText: 'Такой ник уже существует' })
+	if (emailExist) return res.status(400).send({ statusText: 'Такий email вже існує' })
+
+	const usernameExist = await UsersModel.findOne({ username: req.body.fullName })
+	if (usernameExist) return res.status(400).send({ statusText: 'Такий нікнейм вже існує' })
 
 	const salt = await bcrypt.genSalt(10)
 	const hashPassword = await bcrypt.hash(req.body.password, salt)
-
-
 	//Create new user
-	const user = new User({
-		_id: 123,
+	const user = new UsersModel({
 		email: req.body.email,
 		fullName: req.body.fullName,
 		password: hashPassword,
 	})
-
 	try {
 		await user.save()
-		console.log('asdasdasd')
-		await sendEmail(msgOptions)
-		res.send({ statusText: 'Thanks for registering. Please check your email !!' })
+		// await sendEmail(msgOptions)
+		res.send({ statusText: 'Thanks for registering.', email: user.email, fullName: user.fullName })
 	} catch (err) {
-		res.status(400).send({ statusText: 'Something went wrong. Please contact us speachthedictionary@gmail.com' })
+		res.status(400).send({ statusText: 'Something went wrong. Please contact us' })
 		return err
 	}
 }

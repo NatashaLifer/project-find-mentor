@@ -1,0 +1,129 @@
+.mentors {
+    margin-top: 33px;
+}
+.wrapper-cards {
+    @include flex(center, space-between);
+    column-gap: 47px;
+}
+.item.active {
+    display: inline-block;
+}
+.item {
+    display: none;
+    background-color: rgba(251, 129, 34, 0.10);
+    border-radius: 30px;
+    
+    &-pic {
+        @include flex(center, center);
+        position: relative;
+        background-color: var(--bg-color-darker-opaque);
+        border-radius: 30px;
+        width: 270px;
+        height: 193px;
+        margin-bottom: 9px;
+        &::after {
+            @include flex(center, center);
+            content: '3 Slots';
+            @include textSize(700, 7px, normal);
+            color: var(--bg-color-darker-opaque);
+            position: absolute;
+            right: 11px;
+            bottom: -15px;
+            width: 31px;
+            height: 30px;
+            border-radius: 17px;
+            border-color: var(--bg-color-darker-opaque);
+            background-color: var(--text-color-pg2);
+        }
+        &-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 30px;
+        }
+    }
+    &-mentor-name {
+        padding-left: 17px;
+        padding-right: 40px;
+        @include textSize(700, 24px, normal);
+        color: var(--text-color-pg2);
+    }
+    &-rating-count {
+        padding-left: 19px;
+        padding-right: 40px;
+        @include textSize(700, 12px, normal);
+        color: var(--text-color-pg2);
+        margin-bottom: 4px;
+    }
+    &-stack {
+        padding-left: 19px;
+        width: 213px;
+        height: 36px;
+        @include textSize(400, 12px, normal);
+        color: var(--text-color-pg2);
+        margin-bottom: 4px;
+    }
+    &-language-country {
+        padding-left: 35px;
+        padding-right: 40px;
+        position: relative;
+        @include textSize(400, 8px, normal);
+        color: var(--text-color-pg2);
+        margin-bottom: 9px;
+        &::before {
+            content: '';
+            position: absolute;
+            left: 19px;
+            width: 10px;
+            height: 10px;
+            border-radius: 6px;
+            background-color: var(--text-color-pg2);
+        }
+    }
+    &-booking {
+        margin-left: 16px;
+        margin-bottom: 6px;
+        background-color: $main-orange;
+        padding: 11px 23px;
+        border-radius: 30px;
+        border-color: transparent;
+        &:hover {
+            background-color: rgb(212, 102, 17);
+            transition: 0.5s;
+        }
+        &-link, &-cost {
+            text-decoration: none;
+            color: var(--text-color-pg2);
+            @include textSize(700, 16px, normal);
+        }
+        &-cost {
+            padding-left: 23px;
+        }
+    }
+}
+
+.choice-cards {
+    margin-top: 36px;
+    margin-bottom: 32px;
+    @include flex(center, space-between);
+}
+.arrow-left, .arrow-right {
+    border-radius: 83px;
+    background-color: rgba(251, 129, 34, 0.1);
+    border-color: transparent;
+}
+.arrow-left, .arrow-right svg{
+    width: 83px;
+    height: 79px;
+}
+.arrow-left.deact {
+    cursor: pointer;
+}
+.arrow-right.deact {
+    cursor: pointer;
+}
+
+.qty-mentors {
+    @include textSize(400, 24px, normal);
+    color: var(--text-color-pg2)
+}

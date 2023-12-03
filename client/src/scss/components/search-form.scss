@@ -1,0 +1,29 @@
+.search {
+    margin-top: 44px;
+}
+
+.form-searching {
+    display: grid;
+    grid-template-columns: 8fr 3fr 1fr;
+    align-items: center;
+    column-gap: 25px;
+}
+.field-searching {
+    @include textSize (700, 35px, normal); 
+    color: var(--text-color-pg2);
+    background-color: var(--bg-transparent);
+    border-color: transparent;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    padding-inline: 55px;
+    border-radius: 30px;
+}
+.form-searching .field-searching:first-child {
+    padding-left: 32px; 
+    padding-right: unset;
+}
+.form-searching .field-searching:nth-child(2) {
+    width: 174px;
+}
+
+

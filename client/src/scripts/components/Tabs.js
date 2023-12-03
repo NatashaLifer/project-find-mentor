@@ -9,7 +9,7 @@ export default class Tabs {
     }
     
     handleTabs() {
-    
+    if(this.head){
         this.head.addEventListener ('click', (ev) => {
             [...this.head.children].forEach((item) => {
                 item.classList.remove('active')
@@ -27,7 +27,7 @@ export default class Tabs {
                 })
             }
         })
-        
+    }
     }
 
     render() {

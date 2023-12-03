@@ -15,13 +15,13 @@
         gap: 39px
         
     }
-    &__link, &__link-auth {
+    &__link, &__title-auth {
         position: relative;
         text-decoration: none;
         @include textSize (700, 30px, normal);
         color: var(--text-color);
     }
-    &__link-auth> span {
+    &__title-auth> span {
         color: $main-orange;
     }
     &__link::before {
@@ -30,6 +30,10 @@
         top: 43px;
         width: 61px;
         border-bottom: 4px solid $main-orange;
+    }
+
+    .deactiveted-profile {
+        pointer-events: none;
     }
 }
 
