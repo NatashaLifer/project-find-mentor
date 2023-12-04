@@ -24,7 +24,8 @@ export default class Card{
         
         const wrapRating = new CreateElement ('div', {className: 'item-rating'}).render()
         const stars = new CreateElement ('div', {className: 'item-rating-stars'}).render()
-        const ratingCount = new CreateElement ('div', {textContent: this.rating, className: 'item-rating-count'}).render()
+        // const ratingCount = new CreateElement ('div', {textContent: this.rating, className: 'item-rating-count'}).render()
+        const ratingCount = new CreateElement ('div', {textContent: this.category, className: 'item-rating-count'}).render()
         
         
         const description = new CreateElement ('div', {textContent: this.description, className: 'item-stack'}).render()

@@ -2,10 +2,10 @@
     margin-top: 33px;
 }
 .wrapper-cards {
-    @include flex(center, space-between);
+    @include flex(center, flex-start);
     column-gap: 47px;
 }
-.item.active {
+.item.active.show {
     display: inline-block;
 }
 .item {

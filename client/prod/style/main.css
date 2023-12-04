@@ -587,11 +587,11 @@ input:checked + .slider:after {
 .wrapper-cards {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   column-gap: 47px;
 }
 
-.item.active {
+.item.active.show {
   display: inline-block;
 }
 

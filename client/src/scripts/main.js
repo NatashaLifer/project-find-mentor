@@ -38,14 +38,13 @@ const formSignUp = new Form(fieldsDataSignUp, 'signup')
 const formWrapper = document.querySelector('.tabs-body')
 formWrapper.append(formSignIn.render('form-signin'),formSignUp.render('form-signup'))
 
-const tabs = new Tabs('.tabs-head', '.tabs-body', tabsData)
+const tabs = new Tabs('.tabs-head', '.tabs-body', 1, tabsData)
 
 const wrapper = document.querySelector('modal')
 const modal = new Modal(wrapper)
 modal.render(btnAuth)
 
 window.addEventListener('DOMContentLoaded', () => {
-
     const userData = JSON.parse(sessionStorage.getItem('userData')) 
     if(userData) {
         btnAuth.textContent = `${userData.fullName}`
@@ -54,12 +53,32 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const selectedCategory = sessionStorage.getItem('category')
     if(selectedCategory) {
-        const selectedItem = document.querySelectorAll('.categories-item')
-        if(selectedItem){
-            selectedItem.forEach((elem) => {
+        const selectedItemHead = document.querySelectorAll('.categories-item')
+
+        const wrapperBody = document.querySelector('.wrapper-cards')
+        console.log(wrapperBody.childNodes);
+        // console.log([...wrapperBody.children]);
+
+        const selectedItemBody = Array.from(wrapperBody.childNodes)
+        console.log(selectedItemBody);
+        let numberCard = 0
+        if(selectedItemHead){
+            selectedItemHead.forEach((elem) => {
                 elem.classList.remove('active')
-                if (elem.textContent === selectedCategory){
+                if (elem.dataset.tab == selectedCategory){
                     elem.classList.add('active')
+                }
+            });
+            selectedItemBody.forEach((el) => {
+                console.log(el);
+                el.classList.remove('active')
+                el.classList.remove('show')
+                if(el.dataset.bodyelem == selectedCategory){
+                    el.classList.add('active')
+                    numberCard++
+                    if(numberCard <= 4) {
+                        el.classList.add('show')
+                    }
                 }
             })
         }
@@ -69,11 +88,13 @@ window.addEventListener('DOMContentLoaded', () => {
 const categoriesMenu = document.querySelector('.hero__footer-select')
 if(categoriesMenu){
     categoriesMenu.addEventListener('click', (ev) => {
-        sessionStorage.setItem('category', ev.target.textContent)
+        sessionStorage.setItem('category', ev.target.parentElement.dataset.tab)
     })
 }
 
 const mentorsList = document.querySelector('.wrapper-cards')
+const activeCategory = document.querySelector('.categories-item.active')
+
 if(mentorsList) {
     const request = new Api('http://localhost:8080/api')
     const mentors = request.getRequest('/statements');
@@ -81,19 +102,20 @@ if(mentorsList) {
         let numberCard = 0
 
         data.forEach((elem) => {
-            // console.log(elem.category);
-            numberCard++
             const mentor = new Card(elem);
             mentor.render(mentorsList);
-        
-            if(numberCard <= 4) {
-                const activeCards = mentorsList.querySelectorAll('.item')
-                activeCards.forEach((el) => {
-                    el.classList.add('active')
-                })
-            }  
         })
-        const sliderCard = new Slider('.arrow-right', '.arrow-left', '.wrapper-cards .item')
+        
+        const selectedCategoryMentors = document.querySelectorAll(`[data-bodyelem="${activeCategory.dataset.tab}"]`)
+        // console.log(selectedCategoryMentors);
+        selectedCategoryMentors.forEach(element => {
+            element.classList.add('active')
+            numberCard++
+            if(numberCard <= 4) {
+                element.classList.add('show')
+            }
+        })
+        const sliderCard = new Slider('.arrow-right', '.arrow-left', '.item.active') 
     })
 }
 
@@ -101,5 +123,6 @@ if(mentorsList) {
 // showPage.render()
 // const mentors = await showPage.renderContent() 
 
-const categoryTabs = new Tabs('.categories', '.wrapper-cards')
+const categoryTabs = new Tabs('.categories', '.wrapper-cards', 4)
+
 
