@@ -171,6 +171,11 @@ body.light {
   background-size: cover;
 }
 
+.wrapper-bg-search {
+  background: linear-gradient(174deg, var(--bg-color-darker-opaque) -3.73%, var(--bg-color-lighter-opaque) 102.38%);
+  height: 100vh;
+}
+
 .nav {
   padding-top: 87px;
   display: flex;
@@ -521,11 +526,6 @@ input:checked + .slider:after {
 
 .modal-close:hover {
   color: rgb(182, 2, 2);
-}
-
-.wrapper-bg-search {
-  background: linear-gradient(174deg, var(--bg-color-darker-opaque) -3.73%, var(--bg-color-lighter-opaque) 102.38%);
-  height: 100vh;
 }
 
 .search {

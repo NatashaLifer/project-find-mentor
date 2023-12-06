@@ -21,13 +21,11 @@ export default class Tabs {
             ev.target.parentElement.classList.add('active')
 
             if(this.bodytab) {
-                // console.log(this.bodytab);
                 let numberCard = 0;
                 [...this.bodytab.children].forEach((elem) => {
-                    // console.log(elem);
                     elem.classList.remove('active')
                     elem.classList.remove('show')
-                    if (elem.dataset.bodyelem == ev.target.dataset.tab) {
+                    if (elem.dataset.bodyelem === ev.target.dataset.tab) {
                         elem.classList.add('active')
                         
                         numberCard++

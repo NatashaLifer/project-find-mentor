@@ -41,6 +41,7 @@
         "rating": 200,
         "location": "English/Georgian, Georgia",
         "price": 150
+        "imgUrl": "./img/avatar/gogi-beridze.jpg"
     },
     {
         "category": "enginering",
@@ -49,6 +50,7 @@
         "rating": 150,
         "location": "English, Indonezia",
         "price": 150
+        "imgUrl": "./img/avatar/ari-bahtiar.jpg"
     },
     {
         "category": "enginering",
@@ -57,6 +59,7 @@
         "rating": 170,
         "location": "English, Great Britain",
         "price": 200
+        "imgUrl": "./img/avatar/den-rat.jpg"
     },
     {
         "category": "enginering",
@@ -65,6 +68,7 @@
         "rating": 170,
         "location": "English/Spanish, Spain",
         "price": 120
+        "imgUrl": "./img/avatar/maria-garcia.jpg"
     },
     {
         "category": "enginering",
@@ -73,6 +77,7 @@
         "rating": 180,
         "location": "English/Ukranian, Ukraine",
         "price": 150
+        "imgUrl": "./img/avatar/stefy-galushko.jpg"
     },
     {
         "category": "enginering",
@@ -104,7 +109,9 @@
         "description": "10+ years of experience building products, services, and teams at early stage startups",
         "rating": 150,
         "location": "English/Portugueze, Portugal",
-        "price": 200
+        "price": 200,
+        "imgUrl": "./img/avatar/guillermo-olivera.jpg"
+
     },
     {
         "category": "other",
