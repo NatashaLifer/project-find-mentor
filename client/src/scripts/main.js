@@ -1,6 +1,6 @@
 import Api from "./utils/Api.js"
 import Tabs from "./components/Tabs.js"
-import Form from "./components/Form.js"
+import {FormLogin, Form} from "./components/Form.js"
 import Modal from "./components/Modal.js"
 import Card from "./components/Card.js"
 import Slider from "./components/Slider.js"
@@ -13,25 +13,18 @@ switchMode.addEventListener('click', () => {
     document.body.classList.toggle('light') 
 })
 
-
 const btnAuth = document.querySelector('.nav__title-auth')
 
-const formSignIn = new Form(fieldsData, 'signin')
-const formSignUp = new Form(fieldsDataSignUp, 'signup')
+const formSignIn = new FormLogin(fieldsData, 'signin')
+const formSignUp = new FormLogin(fieldsDataSignUp, 'signup')
 const formWrapper = document.querySelector('.tabs-body')
 formWrapper.append(formSignIn.render('form-signin'),formSignUp.render('form-signup'))
 
-const tabs = new Tabs('.tabs-head', '.tabs-body', 1, tabsData)
+new Tabs('.tabs-head', '.tabs-body', 1, tabsData)
 
 const wrapper = document.querySelector('modal')
 const modal = new Modal(wrapper)
 modal.render(btnAuth)
- 
-// const selectedItemBody = document.getElementsByClassName('.item')
-// setTimeout(() => {
-//     console.log(selectedItemBody);
-
-// },1500)
 
 window.addEventListener('DOMContentLoaded', () => {
     const userData = JSON.parse(sessionStorage.getItem('userData')) 
@@ -39,38 +32,6 @@ window.addEventListener('DOMContentLoaded', () => {
         btnAuth.textContent = `${userData.fullName}`
         btnAuth.classList.add('deactiveted-profile')
     }
-
-    // const selectedCategory = sessionStorage.getItem('category')
-    // if(selectedCategory) {
-    //     const selectedItemHead = document.querySelectorAll('.categories-item')
-
-    //     const wrapperBody = document.querySelector('.wrapper-cards')
-    //     console.log(wrapperBody.childNodes);
-    //     // console.log([...wrapperBody.children]);
-
-    //     const selectedItemBody = Array.from(wrapperBody.childNodes)
-    //     let numberCard = 0
-    //     if(selectedItemHead){
-    //         selectedItemHead.forEach((elem) => {
-    //             elem.classList.remove('active')
-    //             if (elem.dataset.tab == selectedCategory){
-    //                 elem.classList.add('active')
-    //             }
-    //         });
-    //         selectedItemBody.forEach((el) => {
-    //             console.log(el);
-    //             el.classList.remove('active')
-    //             el.classList.remove('show')
-    //             if(el.dataset.bodyelem == selectedCategory){
-    //                 el.classList.add('active')
-    //                 numberCard++
-    //                 if(numberCard <= 4) {
-    //                     el.classList.add('show')
-    //                 }
-    //             }
-    //         })
-    //     }
-    // }
 })
 
 const categoriesMenu = document.querySelector('.hero__footer-select')
@@ -108,7 +69,7 @@ if(mentorsList) {
                 element.classList.add('show')
             }
         })
-        const sliderCard = new Slider('.arrow-right', '.arrow-left', '.item.active') 
+        new Slider('.arrow-right', '.arrow-left', '.item.active') 
     })
 }
 
@@ -116,13 +77,7 @@ if(mentorsList) {
 // showPage.render()
 // const mentors = await showPage.renderContent() 
 
-const categoryTabs = new Tabs('.categories', '.wrapper-cards', 4)
+new Tabs('.categories', '.wrapper-cards', 4)
 
-
-// const search = new Search('.form-searching', 'input[name="search"]')
-// search.handleSearch()
-
-// const searchCategory = new Search('.form-searching', 'input[name="category"]')
-// searchCategory.handleSearch()
 
 

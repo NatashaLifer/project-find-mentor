@@ -1,11 +1,14 @@
+import Form from "./Form.js"
+
 export default class Search {
-    constructor(form, input, searchResults){
-        this.form = document.querySelector(form)
-        this.input = this.form.querySelector(input)
-    
-        this.results = searchResults || []
-    }
+    constructor(input, searchResults){
+        this.input = document.querySelector(input)
+        this.results = searchResults || [] //серед яких елементів буде йти пошук:
+                        // - search - пошук по ключовим фразам в description
+                        // - category - пошук по розширеному списку категорій itemizedCategory з випадаючого списку (додати ці категорії в базу даних)
+        }
     handleSearch(){
+        // console.log(this.results);
         this.input.addEventListener('input', (event) => {
             // console.log(event.data);
             const searchValue = event.target.value;

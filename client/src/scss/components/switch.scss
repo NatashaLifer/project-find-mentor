@@ -1,13 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
-
-:root{
-    --text-color-switch: #7E7E7E;
-    --switch-dark: #383838;
-} 
-
 .nav__item-switch-mode {
     font-family: 'Montserrat', sans-serif;
-    color: var(--text-color-switch);
+    color: $light-grey-switch;
     font-size: 0.7rem;
     font-weight: 700;
 }
@@ -33,7 +26,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: $grey;
     -webkit-transition: .8s;
     transition: .8s;
     border-radius: 34px;
@@ -66,7 +59,7 @@
     transition: .4s;
 }
 input:checked + .slider {
-    background-color: var(--switch-dark);
+    background-color: $dark-grey-switch;
 }
   
 input:checked + .slider:before {

@@ -34,7 +34,7 @@ export default class Tabs {
                         }
                     }
                 })
-                const slider = new Slider('.arrow-right', '.arrow-left', '.item.active') 
+                new Slider('.arrow-right', '.arrow-left', '.item.active') 
             }
         })
     }

@@ -1,11 +1,13 @@
 import Search from "../components/searchForm.js"
+import Api from "./Api.js"
+import Form from "../components/Form.js"
 
 window.addEventListener('DOMContentLoaded', () => {
     if(window.location.pathname === '/searching.html') {
         const selectedCategory = sessionStorage.getItem('category')
         const selectedItemHead = document.querySelectorAll('.categories-item')
               
-        if(selectedItemHead){
+        if(selectedCategory){
             selectedItemHead.forEach((elem) => {
                 elem.classList.remove('active')
                 if (elem.dataset.tab == selectedCategory){
@@ -34,12 +36,24 @@ window.addEventListener('DOMContentLoaded', () => {
             //     const selectedItemBody = document.getElementsByClassName('.item')
             //     console.log(selectedItemBody);
             // }, 1000)
-        }
+        } 
 
-        const search = new Search('.form-searching', 'input[name="search"]')
-        search.handleSearch()
+        const request = new Api('http://localhost:8080/api')
+        const mentors = request.getRequest('/statements');
+        mentors.then(data => {
+            const allDescription = []
+            data.forEach(elem => {
+                allDescription.push(elem.description)
+            })
+            // console.log(allDescription);
+            const search = new Search('input[name="search"]', allDescription)
+            // search.handleSearch()
+        })
 
-        const searchCategory = new Search('.form-searching', 'input[name="category"]')
+
+        // const formSearching = new Form([], '.form-searching')
+        
+        const searchCategory = new Search('input[name="category"]') //, itemizedCategory)
         searchCategory.handleSearch()
     }
 })

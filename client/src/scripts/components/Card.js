@@ -6,8 +6,7 @@ export default class Card{
         this.id = _id
         this.category = category
         this.image = 'https://i.pravatar.cc'
-        // this.image = imgUrl
-        // 'https://i.pravatar.cc'
+        // this.image = imgUrl || 'https://i.pravatar.cc'
         // 'https://via.placeholder.com/150'
         this.title = title
         this.description = description
