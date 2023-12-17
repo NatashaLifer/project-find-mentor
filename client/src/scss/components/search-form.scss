@@ -9,13 +9,14 @@
     column-gap: 25px;
 }
 .field-searching {
-    @include textSize (700, 35px, normal); 
+    @include textSize (700, 30px, normal); 
     color: var(--text-color-pg2);
     background-color: var(--bg-transparent);
     border-color: transparent;
     padding-top: 16px;
     padding-bottom: 16px;
-    padding-inline: 55px;
+    padding-right: 55px;
+    padding-left: 55px;
     border-radius: 30px;
 }
 .form-searching .field-searching:first-child {
@@ -23,7 +24,21 @@
     padding-right: unset;
 }
 .form-searching .field-searching:nth-child(2) {
-    width: 174px;
+    padding-right: 25px;
+    padding-left: 35px;
+    // width: 174px;
+}
+.field-searching:focus{
+    outline: 2px solid $grey;
+}
+
+.field-searching option {
+    @include textSize (400, 16px, normal); 
+    color: var(--text-color);
+    background-color: var(--bg-color-darker);
+    // border-color: transparent;
+    // border-radius: 30px;
+    // padding-inline: 35px;
 }
 
 

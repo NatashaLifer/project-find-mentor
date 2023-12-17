@@ -32,6 +32,13 @@ export default class Tabs {
                         if(numberCard <= this.set) {
                             elem.classList.add('show')
                         }
+                    } else if("all" === ev.target.dataset.tab){
+                        elem.classList.add('active')
+                        
+                        numberCard++
+                        if(numberCard <= this.set) {
+                            elem.classList.add('show')
+                        }
                     }
                 })
                 new Slider('.arrow-right', '.arrow-left', '.item.active') 

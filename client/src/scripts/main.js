@@ -1,11 +1,12 @@
-import Api from "./utils/Api.js"
 import Tabs from "./components/Tabs.js"
-import {FormLogin, Form} from "./components/Form.js"
+// import {FormLogin, Form} from "./components/Form/Form.js"
+import Form from "./components/Form/Form.js"
+import FormLogin from "./components/Form/FormLogin.js"
+import FormRegistr from "./components/Form/FormRegistr.js"
 import Modal from "./components/Modal.js"
-import Card from "./components/Card.js"
-import Slider from "./components/Slider.js"
 import { fieldsData, fieldsDataSignUp, tabsData } from "./utils/DataDynamicComponents.js"
 import "./utils/searching.js"
+import "./utils/renderCards.js"
 
 const switchMode = document.getElementById('btn')
 
@@ -16,7 +17,7 @@ switchMode.addEventListener('click', () => {
 const btnAuth = document.querySelector('.nav__title-auth')
 
 const formSignIn = new FormLogin(fieldsData, 'signin')
-const formSignUp = new FormLogin(fieldsDataSignUp, 'signup')
+const formSignUp = new FormRegistr(fieldsDataSignUp, 'signup')
 const formWrapper = document.querySelector('.tabs-body')
 formWrapper.append(formSignIn.render('form-signin'),formSignUp.render('form-signup'))
 
@@ -40,42 +41,6 @@ if(categoriesMenu){
         sessionStorage.setItem('category', ev.target.parentElement.dataset.tab)
     })
 }
-
-const mentorsList = document.querySelector('.wrapper-cards')
-const activeCategory = document.querySelector('.categories-item.active')
-
-if(mentorsList) {
-    const request = new Api('http://localhost:8080/api')
-    const mentors = request.getRequest('/statements');
-    mentors.then(data => {
-        let numberCard = 0
-
-        data.forEach((elem) => {
-            const mentor = new Card(elem);
-            mentor.render(mentorsList);
-        })
-        
-        let selectedCategory = activeCategory.dataset.tab
-        const categoryFromStorage = sessionStorage.getItem('category')
-        if(categoryFromStorage){
-            selectedCategory = categoryFromStorage
-        } 
-
-        const selectedCategoryMentors = document.querySelectorAll(`[data-bodyelem="${selectedCategory}"]`)
-        selectedCategoryMentors.forEach(element => {
-            element.classList.add('active')
-            numberCard++
-            if(numberCard <= 4) {
-                element.classList.add('show')
-            }
-        })
-        new Slider('.arrow-right', '.arrow-left', '.item.active') 
-    })
-}
-
-// const showPage = new Pagination(mentorsList.length, 1, 4)
-// showPage.render()
-// const mentors = await showPage.renderContent() 
 
 new Tabs('.categories', '.wrapper-cards', 4)
 

@@ -33,12 +33,27 @@
         <div class="search container">
             <form action="" class="form-searching">
                 <input type="text" class="field-searching" name="search" placeholder="Search">
-                <input type="text" class="field-searching" name="category" placeholder="Category">
-                <input type="submit" class="field-searching" value="Go">
+                <!-- <input type="text" class="field-searching" name="category" placeholder="Category"> -->
+                <select class="field-searching" name="category" required>
+                    <option value="All Categories" selected>All Categories</option>
+                    <option value="CEO's and Founders">CEO's and Founders</option>
+                    <option value="Product managers">Product managers</option>
+                    <option value="Startup Mentors">Startup Mentors</option>
+                    <option value="Growth Mentors">Growth Mentors</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Javascript Mentors">Javascript Mentors</option>
+                    <option value="Marketing Experts">Marketing Experts</option>
+                    <option value="UX Design">UX Design</option>
+                    <option value="Career Growth">Career Growth</option>
+                    <option value="Game development">Game development</option>
+                  </select>
+                <input type="submit" class="field-searching btn" value="Go">
             </form>
+            <ul class="search-result"></ul>
         </div>
         <ul class="categories container">
-            <li class="categories-item active" data-tab="business">Business</li>
+            <li class="categories-item" data-tab="all">All</li>
+            <li class="categories-item" data-tab="business">Business</li>
             <li class="categories-item" data-tab="enginering">Enginering</li>
             <li class="categories-item" data-tab="marketing">Marketing</li>
             <li class="categories-item" data-tab="other">Other</li>

@@ -535,14 +535,15 @@ input:checked + .slider:after {
 
 .field-searching {
   font-weight: 700;
-  font-size: 35px;
+  font-size: 30px;
   line-height: normal;
   color: var(--text-color-pg2);
   background-color: var(--bg-transparent);
   border-color: transparent;
   padding-top: 16px;
   padding-bottom: 16px;
-  padding-inline: 55px;
+  padding-right: 55px;
+  padding-left: 55px;
   border-radius: 30px;
 }
 
@@ -552,7 +553,20 @@ input:checked + .slider:after {
 }
 
 .form-searching .field-searching:nth-child(2) {
-  width: 174px;
+  padding-right: 25px;
+  padding-left: 35px;
+}
+
+.field-searching:focus {
+  outline: 2px solid rgb(225, 226, 226);
+}
+
+.field-searching option {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: normal;
+  color: var(--text-color);
+  background-color: var(--bg-color-darker);
 }
 
 .categories {
