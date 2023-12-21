@@ -1,12 +1,16 @@
 .search {
     margin-top: 44px;
 }
-
 .form-searching {
     display: grid;
-    grid-template-columns: 8fr 3fr 1fr;
+    grid-template-columns: 8fr 5fr;
     align-items: center;
     column-gap: 25px;
+}
+.fieelds-categ-go {
+    @include flex(start, space-between);
+    column-gap: 25px;
+
 }
 .field-searching {
     @include textSize (700, 30px, normal); 
@@ -23,22 +27,43 @@
     padding-left: 32px; 
     padding-right: unset;
 }
-.form-searching .field-searching:nth-child(2) {
-    padding-right: 25px;
-    padding-left: 35px;
-    // width: 174px;
-}
 .field-searching:focus{
     outline: 2px solid $grey;
 }
-
 .field-searching option {
     @include textSize (400, 16px, normal); 
     color: var(--text-color);
     background-color: var(--bg-color-darker);
-    // border-color: transparent;
-    // border-radius: 30px;
-    // padding-inline: 35px;
 }
 
+@include mqDecrease (476px) {
+    .search {
+        margin-top: 30px;
+    }
+
+    .form-searching {
+        display: block;
+        width: 90%;
+    }
+    .field-searching {
+        @include textSize (700, 11px, normal); 
+        padding-top: 4px;
+        padding-bottom: 4px;
+        padding-right: 55px;
+        padding-left: 18px;
+        border-radius: 10px;
+    }
+    .form-searching .field-searching:first-child {
+        display: block;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .fieelds-categ-go {
+        width: 100%;
+    }
+    
+    .field-searching option {
+        @include textSize (400, 10px, normal); 
+    }
+}
 

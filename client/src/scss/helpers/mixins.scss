@@ -1,3 +1,9 @@
+@mixin mqDecrease ($w) {
+    @media screen and (max-width: $w) {
+       @content; 
+    }  
+}
+
 @mixin flex ($align, $justify) {
     display: flex;
     align-items: $align;

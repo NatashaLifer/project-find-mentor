@@ -1,25 +1,28 @@
 import CreateElement from "../utils/CreateElement.js";
-import Slider from "./Slider.js"
 
 export default class Tabs {
-    constructor (selectorHead, selectorBody, set, tabs) {
+    constructor (selectorHead, selectorBody, set, tabs, qtyActiveSlides) {
         this.tabs = tabs || []
         this.head = document.querySelector(selectorHead) || '' 
         this.bodytab = document.querySelector(selectorBody) || '' 
         this.set = set || 1
+        this.qtyActiveSlides = document.querySelector(qtyActiveSlides)
+        
         this.init()
     }
     
     handleTabs() {
-    if(this.head){
-        this.head.addEventListener ('click', (ev) => {
+        if(this.head){
+            this.head.addEventListener ('click', (ev) => {
             [...this.head.children].forEach((item) => {
                 item.classList.remove('active')
             })
             
+            localStorage.setItem('clearSlider', true)
+
             ev.target.classList.add('active');
             ev.target.parentElement.classList.add('active')
-
+            
             if(this.bodytab) {
                 let numberCard = 0;
                 [...this.bodytab.children].forEach((elem) => {
@@ -27,7 +30,7 @@ export default class Tabs {
                     elem.classList.remove('show')
                     if (elem.dataset.bodyelem === ev.target.dataset.tab) {
                         elem.classList.add('active')
-                        
+
                         numberCard++
                         if(numberCard <= this.set) {
                             elem.classList.add('show')
@@ -41,7 +44,13 @@ export default class Tabs {
                         }
                     }
                 })
-                new Slider('.arrow-right', '.arrow-left', '.item.active') 
+                const activeSlides = this.bodytab.querySelectorAll('.active')
+                this.qtyActiveSlides.textContent = `${activeSlides.length}`
+                
+            } else {
+                const noMentorMessage = new CreateElement ('p', {textContent: 'There are no mentors by this statements',
+                 className: 'wrapper-cards__message'}).render()
+                this.bodytab.append(noMentorMessage)
             }
         })
     }

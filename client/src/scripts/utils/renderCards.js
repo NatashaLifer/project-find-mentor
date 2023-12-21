@@ -16,10 +16,8 @@ if(mentorsList) {
             mentor.render(mentorsList);
         })
         
-        // let selectedCategory = '' 
         const categoryFromStorage = sessionStorage.getItem('category')
         if(categoryFromStorage){
-        //    selectedCategory = categoryFromStorage
         
             const selectedCategoryMentors = document.querySelectorAll(`[data-bodyelem="${categoryFromStorage}"]`)
             selectedCategoryMentors.forEach(element => {
@@ -29,7 +27,6 @@ if(mentorsList) {
                     element.classList.add('show')
                 }
             })
-
         } else {
             let allCards = document.querySelectorAll('.item')
             allCards.forEach(elem => {
@@ -40,6 +37,7 @@ if(mentorsList) {
                 }
             })
         }
-        new Slider('.arrow-right', '.arrow-left', '.item.active') 
+        sessionStorage.removeItem('category')
+        new Slider('.arrow-right', '.arrow-left', '.item.active', 0, 4, '.qty-mentors span') 
     })
 }

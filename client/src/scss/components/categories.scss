@@ -12,3 +12,15 @@
 .categories > .active {
     color: $main-orange;
 }
+
+@include mqDecrease (476px) {
+    .categories {
+        margin-top: 24px;
+        @include flex(center, space-between);
+        gap: 5px;
+    }
+    
+    .categories-item {
+        @include textSize (700, 14px, normal); 
+    } 
+}

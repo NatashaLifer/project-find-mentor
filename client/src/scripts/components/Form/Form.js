@@ -33,7 +33,7 @@ handleForm(){
 serialize() {
     const fieldsData = {};
     const formData = new FormData(this.element)
-    // console.log(formData);
+    
     for(let [name] of formData){
       fieldsData[name] = formData.get(name)
     }

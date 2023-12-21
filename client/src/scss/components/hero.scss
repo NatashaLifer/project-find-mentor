@@ -67,10 +67,68 @@
         margin-left: auto;
     }
     .mentor-registration-link {
-        // display: inline-block;
         text-decoration: none;
         @include textSize (400, 30px, normal);
         color: var(--text-color);
     }
     
+}
+
+@include mqDecrease (476px) {
+    .hero {
+        margin-top: 71px;
+        &__title {
+            width: 309px;
+            @include textSize (700, 60px, 85px);
+            letter-spacing: 0px;
+        }
+        &__buttons {
+            display: inline-block;
+            margin-top: 55px;
+        }
+        &__find {
+            padding: 11px 25px;
+            border-radius: 14px;
+
+            &-link{
+                @include textSize (700, 24px, normal);
+            }
+        }
+        &__video-start { 
+            position: absolute;
+            right: 60px;
+            bottom: 163px;
+
+            width: 68px;
+            height: 48px;
+            border-radius: 16px;
+        }
+        &__footer {
+            margin-top: 55px;
+            margin-bottom: 61px;
+            &-select {
+                display: inline-block;
+            }
+        }
+        .select-item {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        .select-link {
+            @include textSize (700, 19px, normal);
+        }
+        .select-link::before {
+            top: 30px;
+            width: 32px;
+            border-bottom: 4px solid $main-orange;
+        }
+        .mentor-registration {
+            position: absolute;
+            bottom: 61px;
+            right: 110px;
+        }
+        .mentor-registration-link {
+            @include textSize (400, 12px, normal);
+        } 
+    }
 }

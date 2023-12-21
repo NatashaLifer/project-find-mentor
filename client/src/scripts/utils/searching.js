@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 }
             })
         } 
-
+        
         const searchForm = new Search(".form-searching", '.wrapper-cards') 
         searchForm.searchInput()
         searchForm.handleSearch()

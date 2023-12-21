@@ -1,6 +1,6 @@
 import Form from "./Form/Form.js"
 import Api from "../utils/Api.js"
-import Slider from "./Slider.js"
+import CreateElement from "../utils/CreateElement.js"
 
 export default class Search extends Form {
     constructor(form, cardsList){
@@ -14,7 +14,7 @@ export default class Search extends Form {
         // console.log(this.results);
             //серед яких елементів буде йти пошук:
             // - search - пошук по ключовим фразам в description
-            // - category - пошук по розширеному списку категорій itemizedCategory з випадаючого списку (додати ці категорії в базу даних)
+            // - category - пошук по розширеному списку категорій itemizedCategory з випадаючого списку
     }
     handleSearch(){
         super.handleForm()
@@ -32,6 +32,8 @@ export default class Search extends Form {
             // return searchValue
             const request = new Api('http://localhost:8080/api')
             const mentors = request.getRequest('/statements');
+            let numberCard = 0;
+            
             [...this.cardsList.children].forEach(singleCard => {
                     singleCard.classList.remove('active')
                     singleCard.classList.remove('show')
@@ -39,10 +41,16 @@ export default class Search extends Form {
                     data.forEach((mentor) => {
                         const selectedWords = [...searchValue.split(' ')]
                         for (let i = 0; i < selectedWords.length; i++) {    
-                            const elemFind = mentor.description.toLowerCase().includes(selectedWords[i].toLowerCase())                            
-                            if(elemFind & singleCard.dataset.id === mentor._id) {
+                            const elemFind = mentor.description.toLowerCase().includes(selectedWords[i].toLowerCase())  
+                            // console.log(singleCard.dataset.id, mentor._id )                         
+                            if(elemFind && singleCard.dataset.id === mentor._id) {
+                            // if(elemFind) {
                                 singleCard.classList.add('active')                
-                                singleCard.classList.add('show')  
+                                numberCard++
+                                if(numberCard <= 4) {
+                                    singleCard.classList.add('show')
+                                    // console.log(2);
+                                }
                             }
                         }  
                         
@@ -53,8 +61,15 @@ export default class Search extends Form {
                         //     singleCard.classList.add('show')                     
                         // }
                     })
-                    new Slider('.arrow-right', '.arrow-left', '.item.active')
                 })
+                // const oneCard = document.querySelector('.item.active.show')
+                // console.log(oneCard);
+        
+                // if (!oneCard){
+                //     const mentorsCardsWrapper = document.querySelector('.wrapper-cards')
+                //     const noMentorMessage = new CreateElement ('p', {textContent: 'There are no mentors by this statements', className: 'wrapper-cards__message'}).render()
+                //     mentorsCardsWrapper.append(noMentorMessage)
+                // }
             })
             
         }) 
@@ -69,7 +84,7 @@ export default class Search extends Form {
 
         const request = new Api('http://localhost:8080/api')
         const mentors = await request.getRequest('/statements');
-
+        let numberCard = 0;
         [...this.cardsList.children].forEach(singleCard => {
             singleCard.classList.remove('active')
             singleCard.classList.remove('show')
@@ -84,11 +99,23 @@ export default class Search extends Form {
                             
                         if(elemFind & singleCard.dataset.id === mentor._id) {
                             singleCard.classList.add('active')
-                            singleCard.classList.add('show')                     
+                            numberCard++
+                                if(numberCard <= 4) {
+                                    singleCard.classList.add('show')
+                                    console.log(2);
+                                }                 
                         }
                     }                        
                 }
             })  
         }) 
+        const oneCard = document.querySelector('.item.active.show')
+        console.log(oneCard);
+    
+        if (!oneCard){
+            const mentorsCardsWrapper = document.querySelector('.wrapper-cards')
+            const noMentorMessage = new CreateElement ('p', {textContent: 'There are no mentors by this statements', className: 'wrapper-cards__message'}).render()
+            mentorsCardsWrapper.append(noMentorMessage)
+        }
     }     
 }

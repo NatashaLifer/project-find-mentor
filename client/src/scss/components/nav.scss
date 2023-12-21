@@ -37,3 +37,25 @@
     }
 }
 
+@include mqDecrease (476px) {
+    .nav {
+        padding-top: 57px;
+        padding-left: 10px;
+        padding-right: 5px;
+        &__logo-link {
+            @include textSize (700, 20px, normal);
+        }
+        &__menu {
+            gap: 15px 
+        }
+        &__link {
+            display: none;
+        }
+        &__title-auth {
+            @include textSize (700, 20px, normal);
+        }
+        &__title-auth> span {
+            color: $main-orange;
+        }
+    }
+}

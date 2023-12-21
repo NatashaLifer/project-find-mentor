@@ -30,7 +30,6 @@ body.light {
   }
 
 .container {
-    // margin: 0 120px;
     width: 1224px;
     margin: 0 auto;
 }
@@ -52,4 +51,10 @@ body.light {
     var(--bg-color-darker-opaque) -3.73%, 
     var(--bg-color-lighter-opaque) 102.38%);
     height: 100vh;
+}
+
+@include mqDecrease (476px) {
+    .container {
+        max-width: 354px;
+    }
 }

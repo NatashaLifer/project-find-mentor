@@ -1,4 +1,5 @@
 import Tabs from "./components/Tabs.js"
+import Slider from "./components/Slider.js"
 // import {FormLogin, Form} from "./components/Form/Form.js"
 import Form from "./components/Form/Form.js"
 import FormLogin from "./components/Form/FormLogin.js"
@@ -42,7 +43,9 @@ if(categoriesMenu){
     })
 }
 
-new Tabs('.categories', '.wrapper-cards', 4)
+new Tabs('.categories', '.wrapper-cards', 4, undefined, '.qty-mentors span')
+
+
 
 
 
