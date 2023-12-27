@@ -24,23 +24,24 @@ export default class Card{
         const title = new CreateElement ('h2', {textContent: this.title, className: 'item-mentor-name'}).render()
         
         const wrapRating = new CreateElement ('div', {className: 'item-rating'}).render()
-        const stars = new CreateElement ('div', {className: 'item-rating-stars'}).render()
-        // const ratingCount = new CreateElement ('div', {textContent: this.rating, className: 'item-rating-count'}).render()
-        const ratingCount = new CreateElement ('div', {textContent: this.category, className: 'item-rating-count'}).render()
-        
+        const starsBox = new CreateElement ('div', {className: 'item-rating-box'}).render()
+        let starsWidth = this.rating*100/250
+        const stars = new CreateElement ('div', {className: 'item-rating-stars', style: `width: ${starsWidth}%;`}).render()
+        const ratingCount = new CreateElement ('div', {textContent: `(${this.rating})`, className: 'item-rating-count'}).render()
+        // const ratingCount = new CreateElement ('div', {textContent: this.category, className: 'item-rating-count'}).render()
         
         const description = new CreateElement ('div', {textContent: this.description, className: 'item-stack'}).render()
         const location = new CreateElement ('div', {textContent: this.location, className: 'item-language-country'}).render()
-        
         
         const btn = new CreateElement ('button', {className: 'item-booking'}).render()
         const btnLink = new CreateElement('a', {textContent: 'Book Time', className: 'item-booking-link', href: '#'}).render()
         const btnPrice = new CreateElement('span', {className: "item-booking-cost", textContent: `${this.price}$/ hours`}).render()
         
         pic.append(img)
-        wrapRating.append(stars, ratingCount)
+        starsBox.append(stars)
+        wrapRating.append(starsBox, ratingCount)
         btn.append(btnLink, btnPrice)
-        wrapperItem.append(pic, title, wrapRating,description, location, btn)
+        wrapperItem.append(pic, title, wrapRating, description, location, btn)
         container.append(wrapperItem)
     }
 } 

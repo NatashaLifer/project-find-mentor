@@ -14,6 +14,8 @@ body {
     --bg-color-darker-opaque: rgba(58, 37, 109);
     --bg-color-lighter-opaque: rgba(73, 45, 216);
     --bg-transparent: rgba(251, 129, 34, 0.10);
+
+    --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
 }
 
 body.light {
@@ -23,8 +25,8 @@ body.light {
     --btn-bgcolor: rgb(29, 34, 40);
 
     --text-color-pg2: rgba(58, 37, 109);
-    --bg-color-darker-opaque: rgba(189, 200, 212);
-    --bg-color-lighter-opaque: rgba(225, 226, 226);
+    --bg-color-darker-opaque: rgb(189, 200, 212);
+    --bg-color-lighter-opaque: rgb(225, 226, 226);
     --bg-transparent: rgba(251, 129, 34, 0.10);
 
   }

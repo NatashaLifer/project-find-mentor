@@ -1,18 +1,18 @@
-import Form from "./Form/Form.js"
-import Api from "../utils/Api.js"
-import CreateElement from "../utils/CreateElement.js"
+import Form from "./Form.js"
+import Api from "../../utils/Api.js"
+import CreateElement from "../../utils/CreateElement.js"
 
 export default class Search extends Form {
-    constructor(form, cardsList){
+    constructor(form, cardsList, qtyActiveSlides, messageNoCard){
         super()
         this.element = document.querySelector(form)
         this.cardsList = document.querySelector(cardsList);
-
+        this.qtyActiveSlides = document.querySelector(qtyActiveSlides)
         this.input = this.element.querySelector("input")
-
+        this.messageNoCard = document.querySelector(messageNoCard)
         // this.results = searchResults
         // console.log(this.results);
-            //серед яких елементів буде йти пошук:
+            //серед яких елементів буде йти пошук: 
             // - search - пошук по ключовим фразам в description
             // - category - пошук по розширеному списку категорій itemizedCategory з випадаючого списку
     }
@@ -26,7 +26,9 @@ export default class Search extends Form {
                 activeCategory.classList.remove('active')
                 //document.querySelector('[data-tab="all"]').add('active')
             }
-
+            this.messageNoCard.classList.remove('visible')
+            // const activeSlides = this.cardsList.querySelectorAll('.active')
+            
             console.log(event.data)
             const searchValue = event.target.value
             // return searchValue
@@ -44,12 +46,11 @@ export default class Search extends Form {
                             const elemFind = mentor.description.toLowerCase().includes(selectedWords[i].toLowerCase())  
                             // console.log(singleCard.dataset.id, mentor._id )                         
                             if(elemFind && singleCard.dataset.id === mentor._id) {
-                            // if(elemFind) {
                                 singleCard.classList.add('active')                
                                 numberCard++
+                                this.qtyActiveSlides.textContent = `${numberCard}`
                                 if(numberCard <= 4) {
                                     singleCard.classList.add('show')
-                                    // console.log(2);
                                 }
                             }
                         }  
@@ -57,10 +58,10 @@ export default class Search extends Form {
                         //* *вибір по одному слову або виразу:
                         // const elemFind = mentor.description.toLowerCase().includes(searchValue.toLowerCase())
                         // if(elemFind & singleCard.dataset.id === mentor._id) {
-                        //     singleCard.classList.add('active')
-                        //     singleCard.classList.add('show')                     
-                        // }
-                    })
+                            //     singleCard.classList.add('active')
+                            //     singleCard.classList.add('show')                     
+                            // }
+                        })
                 })
                 // const oneCard = document.querySelector('.item.active.show')
                 // console.log(oneCard);
@@ -102,20 +103,23 @@ export default class Search extends Form {
                             numberCard++
                                 if(numberCard <= 4) {
                                     singleCard.classList.add('show')
-                                    console.log(2);
                                 }                 
                         }
                     }                        
                 }
             })  
         }) 
+        const activeSlides = this.cardsList.querySelectorAll('.active')
+        this.qtyActiveSlides.textContent = `${activeSlides.length}`
+
         const oneCard = document.querySelector('.item.active.show')
         console.log(oneCard);
-    
         if (!oneCard){
-            const mentorsCardsWrapper = document.querySelector('.wrapper-cards')
-            const noMentorMessage = new CreateElement ('p', {textContent: 'There are no mentors by this statements', className: 'wrapper-cards__message'}).render()
-            mentorsCardsWrapper.append(noMentorMessage)
+                // const messageNoCard = document.querySelector('.wrapper-cards__message')
+                this.messageNoCard.classList.add('visible')
+        //     const mentorsCardsWrapper = document.querySelector('.wrapper-cards')
+        //     const noMentorMessage = new CreateElement ('p', {textContent: 'There are no mentors by this statements', className: 'wrapper-cards__message'}).render()
+        //     mentorsCardsWrapper.append(noMentorMessage)
         }
     }     
 }

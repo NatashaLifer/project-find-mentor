@@ -44,6 +44,7 @@ onSave(event) {
   event.preventDefault()
   const dataFields = this.serialize();
   console.log(dataFields);
+  event.target.reset()
   return dataFields
 }
 

@@ -8,8 +8,9 @@
     column-gap: 25px;
 }
 .fieelds-categ-go {
-    @include flex(start, space-between);
+    @include flex(stretch, space-between);
     column-gap: 25px;
+    position: relative;
 
 }
 .field-searching {
@@ -19,21 +20,45 @@
     border-color: transparent;
     padding-top: 16px;
     padding-bottom: 16px;
-    padding-right: 55px;
+    padding-right: 65px;
     padding-left: 55px;
     border-radius: 30px;
 }
 .form-searching .field-searching:first-child {
     padding-left: 32px; 
-    padding-right: unset;
 }
 .field-searching:focus{
-    outline: 2px solid $grey;
+    outline: 2px solid var(--text-color-pg2);
 }
+
+select.field-searching {
+    appearance: none;
+    border: 0;
+    
+}
+.fieelds-categ-go::before {
+	content: '';
+	display: inline-block;
+    position: absolute;
+	width: 0.7rem;
+	height: 0.7rem;
+    right: 220px;
+    top: 26px;
+	border-bottom: 4px solid var(--text-color-pg2);
+	border-left: 4px solid var(--text-color-pg2);
+	border-bottom-left-radius: 2px;
+	transform: rotate(-45deg);
+    pointer-events: none; 
+}
+
 .field-searching option {
     @include textSize (400, 16px, normal); 
-    color: var(--text-color);
-    background-color: var(--bg-color-darker);
+    color: var(--bg-color-darker-opaque);
+    background-color: var(--text-color-pg2);
+}
+
+.field-searching option:hover{
+    box-shadow: 0 0 10px 100 px #1882A8 inset;
 }
 
 @include mqDecrease (476px) {
@@ -42,28 +67,42 @@
     }
 
     .form-searching {
-        display: block;
-        width: 90%;
+        @include flex(stretch, start);
+        flex-direction: column;
+        width: 100%;
     }
     .field-searching {
         @include textSize (700, 11px, normal); 
-        padding-top: 4px;
-        padding-bottom: 4px;
-        padding-right: 55px;
-        padding-left: 18px;
+        padding: 4px 18px;
         border-radius: 10px;
     }
     .form-searching .field-searching:first-child {
         display: block;
-        width: 100%;
-        margin-bottom: 20px;
     }
     .fieelds-categ-go {
         width: 100%;
+        margin-top: 20px;
+    }
+
+    .fieelds-categ-go::before {
+        width: 0.4rem;
+        height: 0.4rem;
+        right: 91px;
+        top: 6px;
+        border-bottom: 2px solid var(--text-color-pg2);
+        border-left: 2px solid var(--text-color-pg2);
+        border-bottom-left-radius: 2px;
+        transform: rotate(-45deg);
+        pointer-events: none; 
+    }
+
+    select.field-searching{
+        width: 100%;
+        padding: 6px 30px 6px;
     }
     
     .field-searching option {
-        @include textSize (400, 10px, normal); 
+        @include textSize (400, 12px, normal); 
     }
 }
 

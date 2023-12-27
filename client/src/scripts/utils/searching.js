@@ -1,4 +1,4 @@
-import Search from "../components/searchForm.js"
+import Search from "../components/Form/searchForm.js"
 
 window.addEventListener('DOMContentLoaded', () => {
     if(window.location.pathname === '/searching.html') {
@@ -12,9 +12,9 @@ window.addEventListener('DOMContentLoaded', () => {
                     elem.classList.add('active')
                 }
             })
-        } 
+        }
         
-        const searchForm = new Search(".form-searching", '.wrapper-cards') 
+        const searchForm = new Search('.form-searching', '.wrapper-cards', '.qty-mentors span', '.wrapper-cards__message') 
         searchForm.searchInput()
         searchForm.handleSearch()
         // searchForm.onSave()

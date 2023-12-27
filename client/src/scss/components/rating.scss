@@ -1,0 +1,32 @@
+.item-rating-box {
+  position: relative;
+  font-size: 13px;
+  font-family: FontAwesome;
+  display: inline-block;
+  color: $dark-grey;
+}
+.item-rating-box .item-rating-stars {
+  position: absolute;
+  left:0;
+  top:0;
+  overflow:hidden;
+  color: $main-orange;  
+}
+.item-rating-box .item-rating-stars:before,.item-rating-box:before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  display: block;
+  text-align: center;
+  letter-spacing: 6px;
+  margin-right: calc(-1 * 6px);
+}
+
+@include mqDecrease (476px) {
+  .item-rating-box {
+    font-size: 8px;
+  }
+  .item-rating-box .item-rating-stars:before,.item-rating-box:before {
+    content: "\f005 \f005 \f005 \f005 \f005";
+    letter-spacing: 4px;
+    margin-right: calc(-1 * 4px);
+  }
+}

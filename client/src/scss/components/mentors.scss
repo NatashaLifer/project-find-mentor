@@ -4,6 +4,16 @@
 .wrapper-cards {
     @include flex(center, flex-start);
     column-gap: 47px;
+    &__message {
+        display: none;
+    }
+    &__message.visible {
+        height: 300px;
+        margin: 0 auto;
+        @include flex(center, center);
+        @include textSize(700, 30px, normal);
+        color: $main-orange
+    }
 }
 .item.active.show {
     display: inline-block;
@@ -48,9 +58,14 @@
         @include textSize(700, 24px, normal);
         color: var(--text-color-pg2);
     }
-    &-rating-count {
+    &-rating {
         padding-left: 19px;
-        padding-right: 40px;
+        // padding-right: 40px;
+        
+    }
+    &-rating-count {
+        display: inline-block;
+        padding-left: 9px;
         @include textSize(700, 12px, normal);
         color: var(--text-color-pg2);
         margin-bottom: 4px;
@@ -138,6 +153,12 @@
         flex-wrap: wrap;
         column-gap: 17px;
         row-gap: 16px;
+
+        &__message.visible {
+        padding-inline: 60px;
+        text-align: center;
+        @include textSize(600, 20px, normal);
+    }
     }
     
     .item {
@@ -171,9 +192,10 @@
             padding-right: 0px;
             @include textSize(700, 15px, normal);
         }
-        &-rating-count {
+        &-rating {
             padding-left: 11px;
-            padding-right: 0px;
+        }
+        &-rating-count {
             @include textSize(700, 7px, normal);
         }
         &-stack {

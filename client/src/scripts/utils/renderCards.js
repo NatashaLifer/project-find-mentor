@@ -3,6 +3,7 @@ import Card from "../components/Card";
 import Slider from "../components/Slider";
 
 const mentorsList = document.querySelector('.wrapper-cards')
+const qtyActiveSlides = document.querySelector('.qty-mentors span')
 // const activeCategory = document.querySelector('.categories-item.active')
 
 if(mentorsList) {
@@ -23,6 +24,7 @@ if(mentorsList) {
             selectedCategoryMentors.forEach(element => {
                 element.classList.add('active')
                 numberCard++
+                qtyActiveSlides.textContent = `${numberCard}`
                 if(numberCard <= 4) {
                     element.classList.add('show')
                 }
@@ -32,6 +34,7 @@ if(mentorsList) {
             allCards.forEach(elem => {
                 elem.classList.add('active')
                 numberCard++
+                qtyActiveSlides.textContent = `${numberCard}`
                 if(numberCard <= 4) {
                     elem.classList.add('show')
                 }

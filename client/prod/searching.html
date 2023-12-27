@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Searching a mentor</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-		<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&amp;family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,700&amp;display=swap" rel="stylesheet">
-		
-		<link rel="stylesheet" href="./style/main.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+	<link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&amp;family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,700&amp;display=swap" rel="stylesheet">	
+	<link rel="stylesheet" href="./style/main.css">
+    <script src="https://kit.fontawesome.com/f4ae9d851a.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
     <div class="wrapper-bg-search">
@@ -36,7 +37,7 @@
                 <!-- <input type="text" class="field-searching" name="category" placeholder="Category"> -->
                 <div class="fieelds-categ-go">
                     <select class="field-searching" name="category" required>
-                        <option value="All Categories" selected>Categories</option>
+                        <option value="All Categories" selected>Select a category</option>
                         <option value="CEO's and Founders">CEO's and Founders</option>
                         <option value="Product managers">Product managers</option>
                         <option value="Startup Mentors">Startup Mentors</option>
@@ -60,7 +61,9 @@
             <li class="categories-item" data-tab="other">Other</li>
         </ul>
         <section class="mentors container">
-            <div class="wrapper-cards"></div>
+            <div class="wrapper-cards">
+                <p class="wrapper-cards__message">There are no mentors by this statements</p>
+            </div>
             <div class="choice-cards">
                 <button class="arrow-left">
                     <svg xmlns="http://www.w3.org/2000/svg" 
@@ -71,7 +74,7 @@
                         <path d="M27.4104 40.9944L50.2574 28.6244L49.5466 54.5955L27.4104 40.9944Z" fill="#FB8122"/>
                     </svg>
                 </button>
-                <p class="qty-mentors">Total <span>10</span> mentors</p>
+                <p class="qty-mentors">Total <span></span> mentors</p>
                 <button class="arrow-right">
                     <svg xmlns="http://www.w3.org/2000/svg" 
                          width="100%"

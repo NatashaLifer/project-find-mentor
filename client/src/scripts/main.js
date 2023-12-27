@@ -43,7 +43,7 @@ if(categoriesMenu){
     })
 }
 
-new Tabs('.categories', '.wrapper-cards', 4, undefined, '.qty-mentors span')
+new Tabs('.categories', '.wrapper-cards', 4, null, '.qty-mentors span', '.wrapper-cards__message')
 
 
 
