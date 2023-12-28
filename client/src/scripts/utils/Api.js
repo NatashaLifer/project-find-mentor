@@ -5,8 +5,6 @@ export default class Api {
   async getRequest(routing) {
     const response = await fetch(this.ROOT_URL + routing, {
       method: 'GET',
-      // headers: {
-      // }
     })
     return await response.json();
   }

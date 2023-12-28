@@ -35,7 +35,6 @@ export default class Tabs {
                     elem.classList.remove('active')
                     elem.classList.remove('show')
                     if (elem.dataset.bodyelem === ev.target.dataset.tab) {
-                        console.log(elem);
                         elem.classList.add('active')
 
                         numberCard++
@@ -46,7 +45,6 @@ export default class Tabs {
                             this.qtyActiveSlides.textContent = `${numberCard}`
                         }
                     } else if("all" === ev.target.dataset.tab && elem !== this.messageNoCard){
-                        // && elem !== this.messageNoCard
                         elem.classList.add('active')
                         
                         numberCard++

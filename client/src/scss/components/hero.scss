@@ -46,30 +46,30 @@
         &-select {
             @include flex (center, space-between);
             gap: 59px;
+            &-item {
+                position: relative;
+            }
+            &-link {
+                text-decoration: none;
+                @include textSize (700, 35px, normal);
+                color: var(--text-color);
+            }
+            &-link::before {
+                content: '';
+                position: absolute;
+                top: 53px;
+                width: 61px;
+                border-bottom: 4px solid $main-orange;
+            }
         }
-    }
-    .select-item {
-        position: relative;
-    }
-    .select-link {
-        text-decoration: none;
-        @include textSize (700, 35px, normal);
-        color: var(--text-color);
-    }
-    .select-link::before {
-        content: '';
-        position: absolute;
-        top: 53px;
-        width: 61px;
-        border-bottom: 4px solid $main-orange;
-    }
-    .mentor-registration {
-        margin-left: auto;
-    }
-    .mentor-registration-link {
-        text-decoration: none;
-        @include textSize (400, 30px, normal);
-        color: var(--text-color);
+        &-mentor-reg {
+            margin-left: auto;
+            &-link {
+                text-decoration: none;
+                @include textSize (400, 30px, normal);
+                color: var(--text-color);
+            }
+        }
     }
     
 }
@@ -108,27 +108,27 @@
             margin-bottom: 61px;
             &-select {
                 display: inline-block;
+                &-item {
+                    position: relative;
+                    margin-bottom: 20px;
+                }
+                &-link {
+                    @include textSize (700, 19px, normal);
+                }
+                &-link::before {
+                    top: 30px;
+                    width: 32px;
+                    border-bottom: 4px solid $main-orange;
+                }
+            }
+            &-mentor-reg {
+                position: absolute;
+                bottom: 61px;
+                right: 110px;
+                &-link {
+                    @include textSize (400, 12px, normal);
+                } 
             }
         }
-        .select-item {
-            position: relative;
-            margin-bottom: 20px;
-        }
-        .select-link {
-            @include textSize (700, 19px, normal);
-        }
-        .select-link::before {
-            top: 30px;
-            width: 32px;
-            border-bottom: 4px solid $main-orange;
-        }
-        .mentor-registration {
-            position: absolute;
-            bottom: 61px;
-            right: 110px;
-        }
-        .mentor-registration-link {
-            @include textSize (400, 12px, normal);
-        } 
     }
 }

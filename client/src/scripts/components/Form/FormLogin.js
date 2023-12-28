@@ -16,7 +16,7 @@ export default class FormLogin extends Form {
   
     async onSave(event){
       const requestResult = super.onSave(event)
-      console.log(requestResult);
+      // console.log(requestResult);
   
       if (this.element.classList.contains('form-signin') & this.element.classList.contains('active')) {
         const userLog = await formAuthApi.postRequest('signin', requestResult);
@@ -33,7 +33,7 @@ export default class FormLogin extends Form {
                   const modalWrap = document.querySelector('.modal-wrapper')
                   modalWrap.classList.add('deactiveted')
                   
-                  const signinLink = document.querySelector('.nav__title-auth')
+                  const signinLink = document.querySelector('.nav__item-auth')
                   signinLink.textContent = `${userLog.data.fullName}`
                   signinLink.classList.add('deactiveted-profile')
                 }

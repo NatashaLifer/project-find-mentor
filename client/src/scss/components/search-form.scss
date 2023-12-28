@@ -1,108 +1,106 @@
 .search {
     margin-top: 44px;
-}
-.form-searching {
-    display: grid;
-    grid-template-columns: 8fr 5fr;
-    align-items: center;
-    column-gap: 25px;
-}
-.fieelds-categ-go {
-    @include flex(stretch, space-between);
-    column-gap: 25px;
-    position: relative;
+    &__form {
+        display: grid;
+        grid-template-columns: 8fr 5fr;
+        align-items: center;
+        column-gap: 25px;
 
-}
-.field-searching {
-    @include textSize (700, 30px, normal); 
-    color: var(--text-color-pg2);
-    background-color: var(--bg-transparent);
-    border-color: transparent;
-    padding-top: 16px;
-    padding-bottom: 16px;
-    padding-right: 65px;
-    padding-left: 55px;
-    border-radius: 30px;
-}
-.form-searching .field-searching:first-child {
-    padding-left: 32px; 
-}
-.field-searching:focus{
-    outline: 2px solid var(--text-color-pg2);
+        &-fields-categ-go {
+            @include flex(stretch, space-between);
+            column-gap: 25px;
+            position: relative;
+        }
+        &-fields-categ-go::before {
+            content: '';
+            display: inline-block;
+            position: absolute;
+            width: 0.7rem;
+            height: 0.7rem;
+            right: 220px;
+            top: 26px;
+            border-bottom: 4px solid var(--text-color-pg2);
+            border-left: 4px solid var(--text-color-pg2);
+            border-bottom-left-radius: 2px;
+            transform: rotate(-45deg);
+            pointer-events: none; 
+        }
+        &-field {
+            @include textSize (700, 30px, normal); 
+            color: var(--text-color-pg2);
+            background-color: var(--bg-transparent);
+            border-color: transparent;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            padding-right: 65px;
+            padding-left: 55px;
+            border-radius: 30px;
+        }
+        &-field:focus{
+            outline: 2px solid var(--text-color-pg2);
+        }
+        &-field option {
+            @include textSize (400, 16px, normal); 
+            color: var(--bg-color-darker-opaque);
+            background-color: var(--text-color-pg2);
+        }
+        
+        &-field option:hover{
+            box-shadow: 0 0 10px 100 px #1882A8 inset;
+        }
+    }
+    &__form &__form-field:first-child {
+        padding-left: 32px; 
+    }
 }
 
-select.field-searching {
+select.search__form-field {
     appearance: none;
-    border: 0;
-    
-}
-.fieelds-categ-go::before {
-	content: '';
-	display: inline-block;
-    position: absolute;
-	width: 0.7rem;
-	height: 0.7rem;
-    right: 220px;
-    top: 26px;
-	border-bottom: 4px solid var(--text-color-pg2);
-	border-left: 4px solid var(--text-color-pg2);
-	border-bottom-left-radius: 2px;
-	transform: rotate(-45deg);
-    pointer-events: none; 
+    border: 0;  
 }
 
-.field-searching option {
-    @include textSize (400, 16px, normal); 
-    color: var(--bg-color-darker-opaque);
-    background-color: var(--text-color-pg2);
-}
-
-.field-searching option:hover{
-    box-shadow: 0 0 10px 100 px #1882A8 inset;
-}
 
 @include mqDecrease (476px) {
     .search {
         margin-top: 30px;
+        &__form {
+            @include flex(stretch, start);
+            flex-direction: column;
+            width: 100%;
+
+            &-fields-categ-go {
+                width: 100%;
+                margin-top: 20px;
+            }
+            &-fields-categ-go::before {
+                width: 0.4rem;
+                height: 0.4rem;
+                right: 91px;
+                top: 6px;
+                border-bottom: 2px solid var(--text-color-pg2);
+                border-left: 2px solid var(--text-color-pg2);
+                border-bottom-left-radius: 2px;
+                transform: rotate(-45deg);
+                pointer-events: none; 
+            }
+            &-field {
+                @include textSize (700, 11px, normal); 
+                padding: 4px 18px;
+                border-radius: 10px;
+            }
+            &-field option {
+                @include textSize (400, 12px, normal); 
+            }
+        }
+        &__form &__form-field:first-child {
+            display: block;
+        }
     }
 
-    .form-searching {
-        @include flex(stretch, start);
-        flex-direction: column;
-        width: 100%;
-    }
-    .field-searching {
-        @include textSize (700, 11px, normal); 
-        padding: 4px 18px;
-        border-radius: 10px;
-    }
-    .form-searching .field-searching:first-child {
-        display: block;
-    }
-    .fieelds-categ-go {
-        width: 100%;
-        margin-top: 20px;
-    }
-
-    .fieelds-categ-go::before {
-        width: 0.4rem;
-        height: 0.4rem;
-        right: 91px;
-        top: 6px;
-        border-bottom: 2px solid var(--text-color-pg2);
-        border-left: 2px solid var(--text-color-pg2);
-        border-bottom-left-radius: 2px;
-        transform: rotate(-45deg);
-        pointer-events: none; 
-    }
-
-    select.field-searching{
+    select.search__form-field {
         width: 100%;
         padding: 6px 30px 6px;
     }
     
-    .field-searching option {
-        @include textSize (400, 12px, normal); 
-    }
 }
 

@@ -1,6 +1,5 @@
 import Form from "./Form.js"
 import Api from "../../utils/Api.js"
-import CreateElement from "../../utils/CreateElement.js"
 
 export default class Search extends Form {
     constructor(form, cardsList, qtyActiveSlides, messageNoCard){
@@ -29,7 +28,7 @@ export default class Search extends Form {
             this.messageNoCard.classList.remove('visible')
             // const activeSlides = this.cardsList.querySelectorAll('.active')
             
-            console.log(event.data)
+            // console.log(event.data)
             const searchValue = event.target.value
             // return searchValue
             const request = new Api('http://localhost:8080/api')
@@ -92,7 +91,6 @@ export default class Search extends Form {
 
             mentors.forEach(mentor => { 
                 if(selectedCategory.includes(mentor.itemizedCategory)) {
-                    console.log(mentor.itemizedCategory);
                     const selectedWords = [...selectedDescrip.split(' ')]
 
                     for (let i = 0; i < selectedWords.length; i++) {    
@@ -113,13 +111,12 @@ export default class Search extends Form {
         this.qtyActiveSlides.textContent = `${activeSlides.length}`
 
         const oneCard = document.querySelector('.item.active.show')
-        console.log(oneCard);
         if (!oneCard){
-                // const messageNoCard = document.querySelector('.wrapper-cards__message')
-                this.messageNoCard.classList.add('visible')
-        //     const mentorsCardsWrapper = document.querySelector('.wrapper-cards')
-        //     const noMentorMessage = new CreateElement ('p', {textContent: 'There are no mentors by this statements', className: 'wrapper-cards__message'}).render()
-        //     mentorsCardsWrapper.append(noMentorMessage)
+            this.messageNoCard.classList.add('visible')
+
+            // const mentorsCardsWrapper = document.querySelector('.wrapper-cards')
+            // const noMentorMessage = new CreateElement ('p', {textContent: 'There are no mentors by this statements', className: 'wrapper-cards__message'}).render()
+            // mentorsCardsWrapper.append(noMentorMessage)
         }
     }     
 }

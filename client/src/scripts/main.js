@@ -1,7 +1,4 @@
 import Tabs from "./components/Tabs.js"
-import Slider from "./components/Slider.js"
-// import {FormLogin, Form} from "./components/Form/Form.js"
-import Form from "./components/Form/Form.js"
 import FormLogin from "./components/Form/FormLogin.js"
 import FormRegistr from "./components/Form/FormRegistr.js"
 import Modal from "./components/Modal.js"
@@ -15,7 +12,7 @@ switchMode.addEventListener('click', () => {
     document.body.classList.toggle('light') 
 })
 
-const btnAuth = document.querySelector('.nav__title-auth')
+const btnAuth = document.querySelector('.nav__item-auth')
 
 const formSignIn = new FormLogin(fieldsData, 'signin')
 const formSignUp = new FormRegistr(fieldsDataSignUp, 'signup')

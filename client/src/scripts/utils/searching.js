@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
             })
         }
         
-        const searchForm = new Search('.form-searching', '.wrapper-cards', '.qty-mentors span', '.wrapper-cards__message') 
+        const searchForm = new Search('.search__form', '.wrapper-cards', '.qty-mentors span', '.wrapper-cards__message') 
         searchForm.searchInput()
         searchForm.handleSearch()
         // searchForm.onSave()

@@ -9,8 +9,8 @@
 
 
 # Mentor Page
-- Пошук карток менторів зробити живим, або при натисканні на кнопнку Go
-- Табуляція по заявкам
++ Пошук карток менторів зробити живим, або при натисканні на кнопнку Go
++ Табуляція по заявкам
 + Карточки заявок мають зʼявлятися динамічно, тобто братися з серверу
 + Карточки заявок оформлені в вигляді слайдера
 
@@ -57,7 +57,7 @@
     {
         "category": "enginering",
         "itemizedCategory": "Web Development",
-        "title": "Den Rat",
+        "title": "Den Rat", +
         "description": "Fullstack & Devops Engineer | 6+ years of experience",
         "rating": 170,
         "location": "English, Great Britain",
@@ -67,7 +67,7 @@
     {
         "category": "enginering",
         "itemizedCategory": "Web Development"
-        "title": "Maria Garcia",
+        "title": "Maria Garcia", +
         "description": "Award winning dev with quarter of century of experience that is passionate about front end",
         "rating": 170,
         "location": "English/Spanish, Spain",
@@ -87,16 +87,17 @@
     {
         "category": "enginering",
         "itemizedCategory": "Web Development",
-        "title": "Ryan Black",
+        "title": "Ryan Black", +
         "description": "Fullstack Engineer JavaScript Expert React Node Nest Next",
         "rating": 210,
         "location": "English, USA",
         "price": 200
+        "imgUrl": "./img/avatar/ryan-black.jpg"
     },
     {
         "category": "marketing",
         "itemizedCategory": "Marketing Experts",
-        "title": "Ben Brady",
+        "title": "Ben Brady", +
         "description": "A top-rated digital marketing mentor and agency mentor and entrepreneur",
         "rating": 130,
         "location": "English, Ireland",
@@ -105,7 +106,7 @@
     {
         "category": "marketing",
         "itemizedCategory": "Marketing Experts",
-        "title": "Matt White",
+        "title": "Matt White", +
         "description": "Paid Growth Expert with 7+ years of Agency experience in Digital Marketing",
         "rating": 200,
         "location": "English, Great Britain",
@@ -126,7 +127,7 @@
         "category": "other",
         "itemizedCategory": "Product managers",
         "title": "Annet Petit",
-        "description": "10+ years of experience in Product management - B2B SaaS, PLG and collaboration with Engineering",
+        "description": "10+ years of experience in PM - B2B SaaS, PLG and collaboration with Engineering",
         "rating": 220,
         "location": "English/French, France",
         "price": 200
@@ -152,7 +153,7 @@
     {
         "category": "other",
         "itemizedCategory": "Product managers",
-        "title": "Lilian Young",
+        "title": "Lilian Young", +
         "description": "Improve your analytical prowess, become a better PM",
         "rating": 250,
         "location": "English, Canada",
@@ -161,7 +162,7 @@
     {
         "category": "other",
         "itemizedCategory": "Career Growth",
-        "title": "Suzan Green",
+        "title": "Suzan Green", +
         "description": "I help people design, plan and work towards creating the life they want",
         "rating": 170,
         "location": "English, USA",
@@ -170,7 +171,7 @@
     {
         "category": "other",
         "itemizedCategory": "UX Design",
-        "title": "Diego Solo",
+        "title": "Diego Solo", +
         "description": "Proven track record of helping UX designers advance their careers",
         "rating": 160,
         "location": "English/Italian, Italy",
@@ -198,7 +199,7 @@
     {
         "category":"business",
         "itemizedCategory":"Growth Mentors",
-        "title":"Kim Jeong",
+        "title":"Kim Jeong", +
         "description":"7+ years of work with small and large businesses around the world",
         "rating": 160,
         "location":"English, South Korea",

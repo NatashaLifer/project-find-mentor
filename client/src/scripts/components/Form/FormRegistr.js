@@ -31,7 +31,7 @@ export default class FormRegistr extends Form {
           const popupText = new CreateElement ('p', {className: 'popup-text', textContent: userReg.statusText}).render()
           popup.append(popupText)
               
-          const signinLink = document.querySelector('.nav__title-auth')
+          const signinLink = document.querySelector('.nav__item-auth')
           signinLink.textContent = `${userReg.fullName}`
           signinLink.classList.add('deactiveted-profile')
       }
